@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+
+import 'MedicalHistory/MedicalHistoryScreenWidget.dart';
+
+
 class MyThemData{
   static var DarkGreen = Color.fromRGBO(20, 58, 65, 1.0);
   static var BackgroundColor = Color.fromRGBO(213, 216, 216, 1.0);
@@ -15,6 +19,18 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp();
+    return MaterialApp(
+
+      routes: {
+        MedicalHistory.routeName: (context) => MedicalHistory(),
+
+      },
+        initialRoute: MedicalHistory.routeName,
+        home: Scaffold(
+          backgroundColor: Color(0xffd5d8d8),
+          body: Center(child: MedicalHistory()),
+
+        )
+    );
   }
 }
