@@ -1,5 +1,6 @@
 import 'package:ecall/LocationPermision/LocationPermision.dart';
 import 'package:ecall/MadicalHistory/MedicalHistory.dart';
+import 'package:ecall/registration/RegistrationScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
 
@@ -22,10 +23,9 @@ class MyApp extends StatelessWidget {
       routes: {
         locationpermision.ROUTE_NAME:(context)=>locationpermision(),
         MedicalHistory.ROUTE_NAME:(context)=>MedicalHistory(),
-
-
+        RegistrationScreen.ROUTE_NAME:(context)=>RegistrationScreen(),
       },
-      initialRoute: MedicalHistory.ROUTE_NAME,
+      initialRoute: RegistrationScreen.ROUTE_NAME,
     );
   }
 }

@@ -26,7 +26,7 @@ class MedicalHistoryWidget extends State<MedicalHistory> {
 
           child : Form(
             key: _key,
-            child: Column(
+            child: ListView(
 
               children: [
                 Expanded(
@@ -73,7 +73,8 @@ class MedicalHistoryWidget extends State<MedicalHistory> {
                             child: Text('Do you have any diseases ?',style:TextStyle(fontSize: 18,color: MyThemData.DarkGreen),)),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 10),
-                          child: TextFormField(
+                          child:
+                          TextFormField(
                               validator: (value){
                                 if (value.isEmpty)
                                   return "Please Enter Your comment";
