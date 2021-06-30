@@ -1,3 +1,5 @@
+import 'dart:ffi';
+import 'package:ecall/LocationPermision/LocationPermision.dart';
 import 'package:ecall/main.dart';
 import 'package:flutter/material.dart';
 class MedicalHistory extends StatefulWidget{
@@ -101,13 +103,7 @@ class MedicalHistoryWidget extends State<MedicalHistory> {
                       Padding(
                         padding: const EdgeInsets.only(top: 20),
                         child: ElevatedButton(
-                          onPressed: () {
-
-                            if ( _key.currentState.validate())
-                              return null ;
-                            // Navigator.pushNamed(context, CheckTextField.routeName);
-                            else print ('please fill information ');
-                          },
+                          onPressed: onClick ,
                           style: ElevatedButton.styleFrom(
                               primary: Color.fromARGB(255, 255, 255, 255)),
                           child: (Text(
@@ -124,4 +120,11 @@ class MedicalHistoryWidget extends State<MedicalHistory> {
           )),
     );
   }
+ Void onClick(){
+     if ( _key.currentState.validate()){
+       Navigator.pushNamed(context, locationpermision.ROUTE_NAME);
+     }
+     else print ('please fill information ');
+
+ }
 }
