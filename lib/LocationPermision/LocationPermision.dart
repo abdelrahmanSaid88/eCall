@@ -1,3 +1,4 @@
+import 'package:ecall/HomeScreen/HomeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:location/location.dart';
@@ -14,6 +15,8 @@ class _locationpermisionState extends State<locationpermision> {
   void initState(){
     super.initState();
     checkLocationServices();
+    Navigator.pushNamed(context, HomeScreen.ROUTE_NAME);
+
   }
   @override
   Widget build(BuildContext context) {
