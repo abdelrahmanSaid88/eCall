@@ -104,7 +104,7 @@ class MedicalHistoryWidget extends State<MedicalHistory> {
                         child: ElevatedButton(
                           onPressed: onClick ,
                           style: ElevatedButton.styleFrom(
-                              primary: Color.fromARGB(255, 255, 255, 255)),
+                              primary: Color.fromARGB(255, 244, 244, 244)),
                           child: (Text(
                             'Submit ',
                             style: TextStyle(color: MyThemData.DarkGreen, fontSize: 10,fontWeight: FontWeight.bold),
