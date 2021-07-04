@@ -3,6 +3,7 @@ import 'package:ecall/MadicalHistory/MedicalHistory.dart';
 import 'package:ecall/registration/RegistrationScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
+import 'database/OurDataBase.dart';
 
 class MyThemData {
   static var DarkGreen = Color.fromRGBO(20, 58, 65, 1.0);
@@ -12,6 +13,7 @@ class MyThemData {
 }
 
 void main() {
+  initDataBase();
   runApp(MyApp());
 }
 

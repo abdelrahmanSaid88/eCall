@@ -26,9 +26,7 @@ class _locationpermisionState extends State<locationpermision> {
       _permissionGranted = await location.hasPermission();
 
       if (_permissionGranted == PermissionStatus.granted) {
-        //_location = await location.getLocation();
-        //print(_location.latitude.toString() + " " +
-        //_location.longitude.toString());
+
         location.onLocationChanged.listen((LocationData currentLocation) {
           print(currentLocation.latitude.toString() + " " + currentLocation.longitude.toString());
         });

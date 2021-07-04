@@ -1,6 +1,8 @@
 import 'package:ecall/MadicalHistory/MedicalHistory.dart';
+import 'package:ecall/database/modal/MyDataBase.dart';
 import 'package:flutter/material.dart';
 import 'package:ecall/main.dart';
+import 'package:hive/hive.dart';
 
 class RegistrationScreen extends StatefulWidget {
   static final String ROUTE_NAME = 'Registration Screen';
@@ -10,15 +12,12 @@ class RegistrationScreen extends StatefulWidget {
     // TODO: implement createState
     return RegistrationScreenWidget();
   }
+
 }
 class RegistrationScreenWidget extends State<RegistrationScreen> {
   final _key = GlobalKey<FormState>();
-/*  @override
-  State<RegistrationSxreen> createState() => _RegistrationSxreenState();
-}*/
-/*
-class _RegistrationSxreenState extends State<RegistrationSxreen> {
-  @override*/
+
+  String name;var age ;String address ;  String carBrand ;String carNumber ;var number1;var number2;  var number3; var number4;
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -48,6 +47,9 @@ class _RegistrationSxreenState extends State<RegistrationSxreen> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           TextFormField(
+                            onChanged: (newText){
+                              name=newText;
+                            },
                               validator: (value) {
                                 if (value.isEmpty)
                                   return 'Please do not leave the field blank';
@@ -87,6 +89,9 @@ class _RegistrationSxreenState extends State<RegistrationSxreen> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           TextFormField(
+                              onChanged: (newText){
+                                age=newText;
+                              },
                               validator: (value) {
                                 if (value.isEmpty)
                                   return 'Please do not leave the field blank';
@@ -126,6 +131,9 @@ class _RegistrationSxreenState extends State<RegistrationSxreen> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           TextFormField(
+                              onChanged: (newText){
+                                address=newText;
+                              },
                               validator: (value) {
                                 if (value.isEmpty)
                                   return 'Please do not leave the field blank';
@@ -166,6 +174,9 @@ class _RegistrationSxreenState extends State<RegistrationSxreen> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           TextFormField(
+                              onChanged: (newText){
+                                carBrand=newText;
+                              },
                               validator: (value) {
                                 if (value.isEmpty)
                                   return 'Please do not leave the field blank';
@@ -206,6 +217,9 @@ class _RegistrationSxreenState extends State<RegistrationSxreen> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           TextFormField(
+                              onChanged: (newText){
+                                carNumber=newText;
+                              },
                               validator: (value) {
                                 if (value.isEmpty)
                                   return 'Please do not leave the field blank';
@@ -251,6 +265,9 @@ class _RegistrationSxreenState extends State<RegistrationSxreen> {
                               child: Text('Enter the four numbers you most trusted.',
                                   style:TextStyle(fontSize: 18,color: MyThemData.DarkGreen))),
                           TextFormField(
+                              onChanged: (newText){
+                                number1=newText;
+                              },
                               validator: (value) {
                                 if (value.isEmpty)
                                   return 'Please do not leave the field blank';
@@ -291,6 +308,9 @@ class _RegistrationSxreenState extends State<RegistrationSxreen> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           TextFormField(
+                              onChanged: (newText){
+                                number2=newText;
+                              },
                               validator: (value) {
                                 if (value.isEmpty)
                                   return 'Please do not leave the field blank';
@@ -331,6 +351,9 @@ class _RegistrationSxreenState extends State<RegistrationSxreen> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           TextFormField(
+                              onChanged: (newText){
+                                number3=newText;
+                              },
                               validator: (value) {
                                 if (value.isEmpty)
                                   return 'Please do not leave the field blank';
@@ -371,6 +394,9 @@ class _RegistrationSxreenState extends State<RegistrationSxreen> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           TextFormField(
+                              onChanged: (newText){
+                                number4=newText;
+                              },
                               validator: (value) {
                                 if (value.isEmpty)
                                   return 'Please do not leave the field blank';
@@ -410,9 +436,9 @@ class _RegistrationSxreenState extends State<RegistrationSxreen> {
                         child: ElevatedButton(
                           onPressed: () {
                             if ( _key.currentState.validate())
-                              //return null ;
                              Navigator.pushNamed(context,MedicalHistory.ROUTE_NAME);
                             else print ('please fill information ');
+                            addRegistration();
                           },
                           style: ElevatedButton.styleFrom(
                               primary: Color.fromARGB(255, 255, 255, 255)),
@@ -425,8 +451,6 @@ class _RegistrationSxreenState extends State<RegistrationSxreen> {
                     ],
                   ),
                 )
-
-
               ],
             ),
           ),
@@ -434,4 +458,10 @@ class _RegistrationSxreenState extends State<RegistrationSxreen> {
       ),
     );
   }
+  void addRegistration() async{
+MyDataBase DBRegistration = MyDataBase(name:name, age:age, address:address,carBrand:carBrand,carNumber: carNumber, number1:number1,number2: number2, number3:number3,number4: number4);
+var box =await Hive.openBox<MyDataBase>(MyDataBase.BOX_NAME);
+box.add(DBRegistration);
+  }
+
 }
