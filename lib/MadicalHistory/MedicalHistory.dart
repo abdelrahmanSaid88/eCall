@@ -1,4 +1,5 @@
 import 'dart:ffi';
+import 'package:ecall/ContactPermision/ContactPermision.dart';
 import 'package:ecall/LocationPermision/LocationPermision.dart';
 import 'package:ecall/main.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +29,7 @@ class MedicalHistoryWidget extends State<MedicalHistory> {
 
           child : Form(
             key: _key,
-            child: ListView(
+            child: Column(
 
               children: [
                 Expanded(
@@ -75,8 +76,7 @@ class MedicalHistoryWidget extends State<MedicalHistory> {
                             child: Text('Do you have any diseases ?',style:TextStyle(fontSize: 18,color: MyThemData.DarkGreen),)),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 10),
-                          child:
-                          TextFormField(
+                          child: TextFormField(
                               validator: (value){
                                 if (value.isEmpty)
                                   return "Please Enter Your comment";
@@ -103,7 +103,11 @@ class MedicalHistoryWidget extends State<MedicalHistory> {
                       Padding(
                         padding: const EdgeInsets.only(top: 20),
                         child: ElevatedButton(
-                          onPressed: onClick ,
+                          onPressed: () {
+                              //return null ;
+                              Navigator.pushNamed(context,ContactPermision.ROUTE_NAME);
+
+                          } ,
                           style: ElevatedButton.styleFrom(
                               primary: Color.fromARGB(255, 255, 255, 255)),
                           child: (Text(
@@ -120,11 +124,4 @@ class MedicalHistoryWidget extends State<MedicalHistory> {
           )),
     );
   }
- Void onClick(){
-     if ( _key.currentState.validate()){
-       Navigator.pushNamed(context, locationpermision.ROUTE_NAME);
-     }
-     else print ('please fill information ');
-
- }
 }
