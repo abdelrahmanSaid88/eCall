@@ -44,8 +44,7 @@ class _locationpermisionState extends State<locationpermision> {
                 padding: const EdgeInsets.all(8.0),
                 child: Text('Giza/6October',style: TextStyle(color: MyThemData.DarkGreen),),
               ),
-                Row(children: [
-                  Padding(
+                Padding(
                       padding: const EdgeInsets.all(2),
                       child: Center(child:
                       RaisedButton(
@@ -54,18 +53,16 @@ class _locationpermisionState extends State<locationpermision> {
                         shape: RoundedRectangleBorder(
                             side: BorderSide(color: MyThemData.DarkGreen,width: 0.5),
                             borderRadius: BorderRadius.circular(20)),
-                        child: Text(" ddddddddddd",style: TextStyle(color: MyThemData.DarkGreen),),
+                        child:Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text(" 01145614696",style: TextStyle(color: MyThemData.DarkGreen),),
+                            Icon(Icons.phone_in_talk_outlined, color: MyThemData.DarkGreen,),
+                          ],
+                        ),
                       )
                       )
                   ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(4, 0, 10, 0),
-                    child: Icon(
-                      Icons.backup,
-                      color:Colors.white,
-                      size: 30,
-                    ),
-                  )],),
                 Padding(
                     padding: const EdgeInsets.all(2),
                     child: Center(child:
@@ -75,7 +72,13 @@ class _locationpermisionState extends State<locationpermision> {
                       shape: RoundedRectangleBorder(
                           side: BorderSide(color: MyThemData.DarkGreen,width: 0.5),
                           borderRadius: BorderRadius.circular(20)),
-                      child: Text(" ddddddddddd",style: TextStyle(color: MyThemData.DarkGreen),),
+                      child:Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text(" 20",style: TextStyle(color: MyThemData.DarkGreen),),
+                          Icon(Icons.event_note, color: MyThemData.DarkGreen,),
+                        ],
+                      ),
                     )
                     )
                 ), Padding(
@@ -87,7 +90,13 @@ class _locationpermisionState extends State<locationpermision> {
                       shape: RoundedRectangleBorder(
                           side: BorderSide(color: MyThemData.DarkGreen,width: 0.5),
                           borderRadius: BorderRadius.circular(20)),
-                      child: Text(" ddddddddddd",style: TextStyle(color: MyThemData.DarkGreen),),
+                      child:Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text(" BMW-X6",style: TextStyle(color: MyThemData.DarkGreen),),
+                          Icon(Icons.directions_car_rounded, color: MyThemData.DarkGreen,),
+                        ],
+                      ),
                     )
                     )
                 ), Padding(
@@ -99,10 +108,16 @@ class _locationpermisionState extends State<locationpermision> {
                       shape: RoundedRectangleBorder(
                           side: BorderSide(color: MyThemData.DarkGreen,width: 0.5),
                           borderRadius: BorderRadius.circular(20)),
-                      child: Text(" ddddddddddd",style: TextStyle(color: MyThemData.DarkGreen),),
+                      child:Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text(" ل ن 1254",style: TextStyle(color: MyThemData.DarkGreen),),
+                          Icon(Icons.credit_card_outlined, color: MyThemData.DarkGreen,),
+                        ],
+                      ),
                     )
                     )
-                ), Padding(
+                ),  Padding(
                     padding: const EdgeInsets.all(2),
                     child: Center(child:
                     RaisedButton(
@@ -110,11 +125,71 @@ class _locationpermisionState extends State<locationpermision> {
                       color: MyThemData.White,
                       shape: RoundedRectangleBorder(
                           side: BorderSide(color: MyThemData.DarkGreen,width: 0.5),
-                          borderRadius: BorderRadius.circular(20)),
-                      child: Text(" ddddddddddd",style: TextStyle(color: MyThemData.DarkGreen),),
+                          borderRadius: BorderRadius.circular(15)),
+                      child:Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                           Text(" Friends Numbers",style:
+                          TextStyle(color: MyThemData.DarkGreen),),
+                          Icon(Icons.phone_in_talk_outlined, color: MyThemData.DarkGreen,),
+                             ],),
+                          Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Text('01145614696'),
+                          ),Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Text('01145614696'),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Text('01145614696'),
+                          ),Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Text('01145614696'),
+                          ),
+                      ]),
                     )
                     )
-                )],
+                ),Padding(
+                    padding: const EdgeInsets.all(2),
+                    child: Center(child:
+                    RaisedButton(
+                      onPressed: onUserClicked ,
+                      color: MyThemData.White,
+                      shape: RoundedRectangleBorder(
+                          side: BorderSide(color: MyThemData.DarkGreen,width: 0.5),
+                          borderRadius: BorderRadius.circular(15)),
+                      child:Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(" Medical History",style: TextStyle(color: MyThemData.DarkGreen),),
+                          Icon(Icons.local_hospital_sharp, color: MyThemData.DarkGreen,),
+                        ]),
+                          Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Text('A+'),
+                          ),Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Text('Diabetes'),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Text('High blood pressure'),
+                          ),Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Text('Insect allergy'),
+                          ),
+                      ]),
+                    )
+                    )
+                ),
+                ],
 
             ),
 
