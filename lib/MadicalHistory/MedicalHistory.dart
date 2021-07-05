@@ -29,10 +29,12 @@ class MedicalHistoryWidget extends State<MedicalHistory> {
           child : Form(
             key: _key,
             child: ListView(
+
               children: [
                 Expanded(
                     flex: 1,
                     child: Container(
+
                       margin: EdgeInsets.all(1),
                       padding: EdgeInsets.all(8),
                       child: Column(
@@ -43,11 +45,13 @@ class MedicalHistoryWidget extends State<MedicalHistory> {
                               padding: EdgeInsets.only(bottom: 15),
                               child: Text('What is your Blood Type ?',style:TextStyle(fontSize: 18,color: MyThemData.DarkGreen))),
                           TextFormField(
+
                               validator: (value){
                                 if (value.isEmpty)
                                   return "Please Enter Your Blood Type";
                                 else return null ;
                               },
+
                               style: TextStyle(fontSize: 15),
                               decoration: InputDecoration(
                                 labelText: 'Enter Your Blood Type ',
@@ -55,6 +59,7 @@ class MedicalHistoryWidget extends State<MedicalHistory> {
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
+
                               ))
                         ],
                       ),
