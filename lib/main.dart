@@ -1,8 +1,11 @@
 import 'package:ecall/LocationPermision/LocationPermision.dart';
 import 'package:ecall/MadicalHistory/MedicalHistory.dart';
+import 'package:ecall/home/HomeScreen.dart';
 import 'package:ecall/registration/RegistrationScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
+
+import 'ContactPermision/ContactPermision.dart';
 
 class MyThemData {
   static var DarkGreen = Color.fromRGBO(20, 58, 65, 1.0);
@@ -21,9 +24,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        locationpermision.ROUTE_NAME:(context)=>locationpermision(),
-        MedicalHistory.ROUTE_NAME:(context)=>MedicalHistory(),
-        RegistrationScreen.ROUTE_NAME:(context)=>RegistrationScreen(),
+        ContactPermision.ROUTE_NAME: (context) => ContactPermision(),
+        locationpermision.ROUTE_NAME: (context) => locationpermision(),
+        MedicalHistory.ROUTE_NAME: (context) => MedicalHistory(),
+        RegistrationScreen.ROUTE_NAME: (context) => RegistrationScreen(),
+        HomeScreen.ROUTE_NAME: (context) => HomeScreen(),
       },
       initialRoute: RegistrationScreen.ROUTE_NAME,
     );
