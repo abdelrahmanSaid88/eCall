@@ -7,7 +7,7 @@ import 'package:location/location.dart';
 
 import 'ContactPermision/ContactPermision.dart';
 
-class MyThemData {
+class MyThemeData {
   static var DarkGreen = Color.fromRGBO(20, 58, 65, 1.0);
   static var BackgroundColor = Color.fromRGBO(213, 216, 216, 1.0);
   static var Black = Color.fromRGBO(14, 14, 14, 1.0);

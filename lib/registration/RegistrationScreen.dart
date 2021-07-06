@@ -21,24 +21,23 @@ class RegistrationScreenWidget extends State<RegistrationScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: MyThemData.BackgroundColor,
+        backgroundColor: MyThemeData.BackgroundColor,
         body: Container(
           child: Form(
             key: _key,
             child: ListView(
-              children: <Widget> [
+              children: <Widget>[
                 //LOGO
                 Expanded(
                     flex: 1,
                     child: Container(
-                        child:
-                        Center(child: Image.asset('assets/images/logo.png'))
+                        child: Center(child: Image.asset('assets/images/logo.png'))
 
                     )
                 ),
                 //NAME
                 Expanded(
-                   flex: 1,
+                    flex: 1,
                     child: Container(
                       margin: EdgeInsets.all(1),
                       padding: EdgeInsets.all(5),
@@ -47,9 +46,9 @@ class RegistrationScreenWidget extends State<RegistrationScreen> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           TextFormField(
-                            onChanged: (newText){
-                              name=newText;
-                            },
+                              onChanged: (newText) {
+                                name = newText;
+                              },
                               validator: (value) {
                                 if (value.isEmpty)
                                   return 'Please do not leave the field blank';
@@ -57,21 +56,26 @@ class RegistrationScreenWidget extends State<RegistrationScreen> {
                                   return null;
                               },
                               style: TextStyle(
-                                  fontSize: 15, color: MyThemData.DarkGreen),
+                                  fontSize: 15, color: MyThemeData.DarkGreen),
                               decoration: InputDecoration(
                                 prefixIcon: Container(
-                                  padding: EdgeInsets.only(left: 10.0, right: 10.0, bottom: 8.0, top: 10.0),
+                                  padding: EdgeInsets.only(
+                                      left: 10.0,
+                                      right: 10.0,
+                                      bottom: 8.0,
+                                      top: 10.0),
                                   child:
                                       Image.asset("assets/images/ic_name.png"),
                                 ),
                                 labelText: 'Name',
-                                fillColor: MyThemData.White,
+                                fillColor: MyThemeData.White,
                                 filled: true,
                                 labelStyle: TextStyle(
-                                  color: MyThemData.DarkGreen,
+                                  color: MyThemeData.DarkGreen,
                                 ),
-                                focusedBorder:OutlineInputBorder(
-                                  borderSide:  BorderSide(color:MyThemData.DarkGreen, width: 2.0),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: MyThemeData.DarkGreen, width: 2.0),
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                               ))
@@ -89,8 +93,8 @@ class RegistrationScreenWidget extends State<RegistrationScreen> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           TextFormField(
-                              onChanged: (newText){
-                                age=newText;
+                              onChanged: (newText) {
+                                age = newText;
                               },
                               validator: (value) {
                                 if (value.isEmpty)
@@ -99,21 +103,26 @@ class RegistrationScreenWidget extends State<RegistrationScreen> {
                                   return null;
                               },
                               style: TextStyle(
-                                  fontSize: 15, color: MyThemData.DarkGreen),
+                                  fontSize: 15, color: MyThemeData.DarkGreen),
                               decoration: InputDecoration(
                                 prefixIcon: Container(
-                                  padding: EdgeInsets.only(left: 10.0, right: 10.0, bottom: 8.0, top: 10.0),
+                                  padding: EdgeInsets.only(
+                                      left: 10.0,
+                                      right: 10.0,
+                                      bottom: 8.0,
+                                      top: 10.0),
                                   child:
-                                  Image.asset("assets/images/ic_age.png"),
+                                      Image.asset("assets/images/ic_age.png"),
                                 ),
                                 labelText: 'Age',
-                                fillColor: MyThemData.White,
+                                fillColor: MyThemeData.White,
                                 filled: true,
                                 labelStyle: TextStyle(
-                                  color: MyThemData.DarkGreen,
+                                  color: MyThemeData.DarkGreen,
                                 ),
-                                focusedBorder:OutlineInputBorder(
-                                  borderSide:  BorderSide(color:MyThemData.DarkGreen, width: 2.0),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: MyThemeData.DarkGreen, width: 2.0),
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                               ))
@@ -131,8 +140,8 @@ class RegistrationScreenWidget extends State<RegistrationScreen> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           TextFormField(
-                              onChanged: (newText){
-                                address=newText;
+                              onChanged: (newText) {
+                                address = newText;
                               },
                               validator: (value) {
                                 if (value.isEmpty)
@@ -141,22 +150,26 @@ class RegistrationScreenWidget extends State<RegistrationScreen> {
                                   return null;
                               },
                               style: TextStyle(
-                                  fontSize: 15, color: MyThemData.DarkGreen),
+                                  fontSize: 15, color: MyThemeData.DarkGreen),
                               decoration: InputDecoration(
                                 prefixIcon: Container(
-                                 padding: EdgeInsets.only(left: 10.0, right: 10.0, bottom: 8.0, top: 10.0),
-                                  child:
-                                  Image.asset("assets/images/ic_location.png"),
+                                  padding: EdgeInsets.only(
+                                      left: 10.0,
+                                      right: 10.0,
+                                      bottom: 8.0,
+                                      top: 10.0),
+                                  child: Image.asset(
+                                      "assets/images/ic_location.png"),
                                 ),
                                 labelText: 'Address',
-                                fillColor: MyThemData.White,
+                                fillColor: MyThemeData.White,
                                 filled: true,
                                 labelStyle: TextStyle(
-                                  color: MyThemData.DarkGreen,
-
+                                  color: MyThemeData.DarkGreen,
                                 ),
-                                focusedBorder:OutlineInputBorder(
-                                  borderSide:  BorderSide(color:MyThemData.DarkGreen, width: 2.0),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: MyThemeData.DarkGreen, width: 2.0),
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                               ))
@@ -174,8 +187,8 @@ class RegistrationScreenWidget extends State<RegistrationScreen> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           TextFormField(
-                              onChanged: (newText){
-                                carBrand=newText;
+                              onChanged: (newText) {
+                                carBrand = newText;
                               },
                               validator: (value) {
                                 if (value.isEmpty)
@@ -184,22 +197,26 @@ class RegistrationScreenWidget extends State<RegistrationScreen> {
                                   return null;
                               },
                               style: TextStyle(
-                                  fontSize: 15, color: MyThemData.DarkGreen),
+                                  fontSize: 15, color: MyThemeData.DarkGreen),
                               decoration: InputDecoration(
                                 prefixIcon: Container(
-                                  padding: EdgeInsets.only(left: 10.0, right: 10.0, bottom: 8.0, top: 10.0),
-                                  child:
-                                  Image.asset("assets/images/ic_car_brand.png"),
+                                  padding: EdgeInsets.only(
+                                      left: 10.0,
+                                      right: 10.0,
+                                      bottom: 8.0,
+                                      top: 10.0),
+                                  child: Image.asset(
+                                      "assets/images/ic_car_brand.png"),
                                 ),
                                 labelText: 'Car Brand',
-                                fillColor: MyThemData.White,
+                                fillColor: MyThemeData.White,
                                 filled: true,
                                 labelStyle: TextStyle(
-                                  color: MyThemData.DarkGreen,
-
+                                  color: MyThemeData.DarkGreen,
                                 ),
-                                focusedBorder:OutlineInputBorder(
-                                  borderSide:  BorderSide(color:MyThemData.DarkGreen, width: 2.0),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: MyThemeData.DarkGreen, width: 2.0),
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                               ))
@@ -208,7 +225,7 @@ class RegistrationScreenWidget extends State<RegistrationScreen> {
                     )),
                 //CAR NUMBER
                 Expanded(
-                   flex: 1,
+                    flex: 1,
                     child: Container(
                       margin: EdgeInsets.all(1),
                       padding: EdgeInsets.all(5),
@@ -217,8 +234,8 @@ class RegistrationScreenWidget extends State<RegistrationScreen> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           TextFormField(
-                              onChanged: (newText){
-                                carNumber=newText;
+                              onChanged: (newText) {
+                                carNumber = newText;
                               },
                               validator: (value) {
                                 if (value.isEmpty)
@@ -227,22 +244,26 @@ class RegistrationScreenWidget extends State<RegistrationScreen> {
                                   return null;
                               },
                               style: TextStyle(
-                                  fontSize: 15, color: MyThemData.DarkGreen),
+                                  fontSize: 15, color: MyThemeData.DarkGreen),
                               decoration: InputDecoration(
                                 prefixIcon: Container(
-                                  padding: EdgeInsets.only(left: 10.0, right: 10.0, bottom: 8.0, top: 10.0),
-                                  child:
-                                  Image.asset("assets/images/ic_car_number.png"),
+                                  padding: EdgeInsets.only(
+                                      left: 10.0,
+                                      right: 10.0,
+                                      bottom: 8.0,
+                                      top: 10.0),
+                                  child: Image.asset(
+                                      "assets/images/ic_car_number.png"),
                                 ),
                                 labelText: 'Car Number',
-                                fillColor: MyThemData.White,
+                                fillColor: MyThemeData.White,
                                 filled: true,
                                 labelStyle: TextStyle(
-                                  color: MyThemData.DarkGreen,
-
+                                  color: MyThemeData.DarkGreen,
                                 ),
-                                focusedBorder:OutlineInputBorder(
-                                  borderSide:  BorderSide(color:MyThemData.DarkGreen, width: 2.0),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: MyThemeData.DarkGreen, width: 2.0),
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                               ))
@@ -252,7 +273,7 @@ class RegistrationScreenWidget extends State<RegistrationScreen> {
                 //MOBILE NUMBERS #1 #2 #3 #4
                 //MOBILE NUMBER #1
                 Expanded(
-                  flex: 1,
+                    flex: 1,
                     child: Container(
                       margin: EdgeInsets.all(1),
                       padding: EdgeInsets.all(5),
@@ -261,12 +282,15 @@ class RegistrationScreenWidget extends State<RegistrationScreen> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           Container(
-                              padding: EdgeInsets.only(bottom: 15,left: 13),
-                              child: Text('Enter the four numbers you most trusted.',
-                                  style:TextStyle(fontSize: 18,color: MyThemData.DarkGreen))),
+                              padding: EdgeInsets.only(bottom: 15, left: 13),
+                              child: Text(
+                                  'Enter the four numbers you most trusted.',
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      color: MyThemeData.DarkGreen))),
                           TextFormField(
-                              onChanged: (newText){
-                                number1=newText;
+                              onChanged: (newText) {
+                                number1 = newText;
                               },
                               validator: (value) {
                                 if (value.isEmpty)
@@ -275,22 +299,26 @@ class RegistrationScreenWidget extends State<RegistrationScreen> {
                                   return null;
                               },
                               style: TextStyle(
-                                  fontSize: 15, color: MyThemData.DarkGreen),
+                                  fontSize: 15, color: MyThemeData.DarkGreen),
                               decoration: InputDecoration(
                                 prefixIcon: Container(
-                                  padding: EdgeInsets.only(left: 10.0, right: 10.0, bottom: 8.0, top: 10.0),
+                                  padding: EdgeInsets.only(
+                                      left: 10.0,
+                                      right: 10.0,
+                                      bottom: 8.0,
+                                      top: 10.0),
                                   child:
-                                  Image.asset("assets/images/ic_call.png"),
+                                      Image.asset("assets/images/ic_call.png"),
                                 ),
                                 labelText: 'Mobile Number #1',
-                                fillColor: MyThemData.White,
+                                fillColor: MyThemeData.White,
                                 filled: true,
                                 labelStyle: TextStyle(
-                                  color: MyThemData.DarkGreen,
-
+                                  color: MyThemeData.DarkGreen,
                                 ),
-                                focusedBorder:OutlineInputBorder(
-                                  borderSide:  BorderSide(color:MyThemData.DarkGreen, width: 2.0),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: MyThemeData.DarkGreen, width: 2.0),
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                               ))
@@ -299,7 +327,7 @@ class RegistrationScreenWidget extends State<RegistrationScreen> {
                     )),
                 //MOBILE NUMBER #2
                 Expanded(
-                   flex: 1,
+                    flex: 1,
                     child: Container(
                       margin: EdgeInsets.all(1),
                       padding: EdgeInsets.all(5),
@@ -308,8 +336,8 @@ class RegistrationScreenWidget extends State<RegistrationScreen> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           TextFormField(
-                              onChanged: (newText){
-                                number2=newText;
+                              onChanged: (newText) {
+                                number2 = newText;
                               },
                               validator: (value) {
                                 if (value.isEmpty)
@@ -318,22 +346,26 @@ class RegistrationScreenWidget extends State<RegistrationScreen> {
                                   return null;
                               },
                               style: TextStyle(
-                                  fontSize: 15, color: MyThemData.DarkGreen),
+                                  fontSize: 15, color: MyThemeData.DarkGreen),
                               decoration: InputDecoration(
                                 prefixIcon: Container(
-                                  padding: EdgeInsets.only(left: 10.0, right: 10.0, bottom: 8.0, top: 10.0),
+                                  padding: EdgeInsets.only(
+                                      left: 10.0,
+                                      right: 10.0,
+                                      bottom: 8.0,
+                                      top: 10.0),
                                   child:
-                                  Image.asset("assets/images/ic_call.png"),
+                                      Image.asset("assets/images/ic_call.png"),
                                 ),
                                 labelText: 'Mobile Number #2',
-                                fillColor: MyThemData.White,
+                                fillColor: MyThemeData.White,
                                 filled: true,
                                 labelStyle: TextStyle(
-                                  color: MyThemData.DarkGreen,
-
+                                  color: MyThemeData.DarkGreen,
                                 ),
-                                focusedBorder:OutlineInputBorder(
-                                  borderSide:  BorderSide(color:MyThemData.DarkGreen, width: 2.0),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: MyThemeData.DarkGreen, width: 2.0),
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                               ))
@@ -342,7 +374,7 @@ class RegistrationScreenWidget extends State<RegistrationScreen> {
                     )),
                 //MOBILE NUMBER #3
                 Expanded(
-                  flex: 1,
+                    flex: 1,
                     child: Container(
                       margin: EdgeInsets.all(1),
                       padding: EdgeInsets.all(5),
@@ -351,8 +383,8 @@ class RegistrationScreenWidget extends State<RegistrationScreen> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           TextFormField(
-                              onChanged: (newText){
-                                number3=newText;
+                              onChanged: (newText) {
+                                number3 = newText;
                               },
                               validator: (value) {
                                 if (value.isEmpty)
@@ -361,22 +393,26 @@ class RegistrationScreenWidget extends State<RegistrationScreen> {
                                   return null;
                               },
                               style: TextStyle(
-                                  fontSize: 15, color: MyThemData.DarkGreen),
+                                  fontSize: 15, color: MyThemeData.DarkGreen),
                               decoration: InputDecoration(
                                 prefixIcon: Container(
-                                  padding: EdgeInsets.only(left: 10.0, right: 10.0, bottom: 8.0, top: 10.0),
+                                  padding: EdgeInsets.only(
+                                      left: 10.0,
+                                      right: 10.0,
+                                      bottom: 8.0,
+                                      top: 10.0),
                                   child:
-                                  Image.asset("assets/images/ic_call.png"),
+                                      Image.asset("assets/images/ic_call.png"),
                                 ),
                                 labelText: 'Mobile Number #3',
-                                fillColor: MyThemData.White,
+                                fillColor: MyThemeData.White,
                                 filled: true,
                                 labelStyle: TextStyle(
-                                  color: MyThemData.DarkGreen,
-
+                                  color: MyThemeData.DarkGreen,
                                 ),
-                                focusedBorder:OutlineInputBorder(
-                                  borderSide:  BorderSide(color:MyThemData.DarkGreen, width: 2.0),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: MyThemeData.DarkGreen, width: 2.0),
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                               ))
@@ -385,7 +421,7 @@ class RegistrationScreenWidget extends State<RegistrationScreen> {
                     )),
                 //MOBILE NUMBER #4
                 Expanded(
-                   flex: 1,
+                    flex: 1,
                     child: Container(
                       margin: EdgeInsets.all(1),
                       padding: EdgeInsets.all(5),
@@ -394,8 +430,8 @@ class RegistrationScreenWidget extends State<RegistrationScreen> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           TextFormField(
-                              onChanged: (newText){
-                                number4=newText;
+                              onChanged: (newText) {
+                                number4 = newText;
                               },
                               validator: (value) {
                                 if (value.isEmpty)
@@ -404,22 +440,26 @@ class RegistrationScreenWidget extends State<RegistrationScreen> {
                                   return null;
                               },
                               style: TextStyle(
-                                  fontSize: 15, color: MyThemData.DarkGreen),
+                                  fontSize: 15, color: MyThemeData.DarkGreen),
                               decoration: InputDecoration(
                                 prefixIcon: Container(
-                                  padding: EdgeInsets.only(left: 10.0, right: 10.0, bottom: 8.0, top: 10.0),
+                                  padding: EdgeInsets.only(
+                                      left: 10.0,
+                                      right: 10.0,
+                                      bottom: 8.0,
+                                      top: 10.0),
                                   child:
-                                  Image.asset("assets/images/ic_call.png"),
+                                      Image.asset("assets/images/ic_call.png"),
                                 ),
                                 labelText: 'Mobile Number #4',
-                                fillColor: MyThemData.White,
+                                fillColor: MyThemeData.White,
                                 filled: true,
                                 labelStyle: TextStyle(
-                                  color: MyThemData.DarkGreen,
-
+                                  color: MyThemeData.DarkGreen,
                                 ),
-                                focusedBorder:OutlineInputBorder(
-                                  borderSide:  BorderSide(color:MyThemData.DarkGreen, width: 2.0),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: MyThemeData.DarkGreen, width: 2.0),
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                               ))
@@ -435,16 +475,21 @@ class RegistrationScreenWidget extends State<RegistrationScreen> {
                         padding: const EdgeInsets.only(top: 20,bottom: 20),
                         child: ElevatedButton(
                           onPressed: () {
-                            if ( _key.currentState.validate())
-                             Navigator.pushNamed(context,MedicalHistory.ROUTE_NAME);
-                            else print ('please fill information ');
+                            if (_key.currentState.validate())
+                              Navigator.pushNamed(
+                                  context, MedicalHistory.ROUTE_NAME);
+                            else
+                              print('please fill information ');
                             addRegistration();
                           },
                           style: ElevatedButton.styleFrom(
                               primary: Color.fromARGB(255, 255, 255, 255)),
-                          child: (
-                              Text('NEXT ',
-                            style: TextStyle(color: MyThemData.DarkGreen, fontSize: 10,fontWeight: FontWeight.bold),
+                          child: (Text(
+                            'NEXT ',
+                            style: TextStyle(
+                                color: MyThemeData.DarkGreen,
+                                fontSize: 10,
+                                fontWeight: FontWeight.bold),
                           )),
                         ),
                       )
@@ -458,10 +503,18 @@ class RegistrationScreenWidget extends State<RegistrationScreen> {
       ),
     );
   }
-  void addRegistration() async{
-MyDataBase DBRegistration = MyDataBase(name:name, age:age, address:address,carBrand:carBrand,carNumber: carNumber, number1:number1,number2: number2, number3:number3,number4: number4);
-var box =await Hive.openBox<MyDataBase>(MyDataBase.BOX_NAME);
-box.add(DBRegistration);
+  void addRegistration() async {
+    MyDataBase DBRegistration = MyDataBase(
+        name: name,
+        age: age,
+        address: address,
+        carBrand: carBrand,
+        carNumber: carNumber,
+        number1: number1,
+        number2: number2,
+        number3: number3,
+        number4: number4);
+    var box = await Hive.openBox<MyDataBase>(MyDataBase.BOX_NAME);
+    box.add(DBRegistration);
   }
-
 }
