@@ -20,19 +20,18 @@ class MedicalHistoryWidget extends State<MedicalHistory> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      backgroundColor: MyThemeData.BackgroundColor,
+      backgroundColor: MyThemData.BackgroundColor,
       appBar: AppBar(
-        backgroundColor: MyThemeData.White,
-        title: Text(
-          'Medical History ',
-          style: TextStyle(color: MyThemeData.DarkGreen),
-        ),
+        backgroundColor: MyThemData.White,
+        title: Text('Medical History ',style: TextStyle(color:MyThemData.DarkGreen ),),
       ),
       body: Container(
-          child: Form(
-        key: _key,
-        child: ListView(
-          children: [
+
+          child : Form(
+            key: _key,
+            child: ListView(
+
+              children: [
                 Expanded(
                     flex: 1,
                     child: Container(
@@ -43,27 +42,24 @@ class MedicalHistoryWidget extends State<MedicalHistory> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                      Container(
-                          padding: EdgeInsets.only(bottom: 15),
-                          child: Text('What is your Blood Type ?',
-                              style: TextStyle(
-                                  fontSize: 18, color: MyThemeData.DarkGreen))),
-                      TextFormField(
-                          validator: (value) {
-                            if (value.isEmpty)
-                              return "Please Enter Your Blood Type";
-                            else
-                              return null;
-                          },
-                          style: TextStyle(fontSize: 15),
-                          decoration: InputDecoration(
-                            labelText: 'Enter Your Blood Type ',
+                          Container(
+                              padding: EdgeInsets.only(bottom: 15),
+                              child: Text('What is your Blood Type ?',style:TextStyle(fontSize: 18,color: MyThemData.DarkGreen))),
+                          TextFormField(
+
+                              validator: (value){
+                                if (value.isEmpty)
+                                  return "Please Enter Your Blood Type";
+                                else return null ;
+                              },
+
+                              style: TextStyle(fontSize: 15),
+                              decoration: InputDecoration(
+                                labelText: 'Enter Your Blood Type ',
                                 fillColor: Colors.white,filled: true,
                                 border: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                  color: MyThemeData.DarkGreen, width: 2.0),
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
 
                               ))
                         ],
@@ -75,34 +71,27 @@ class MedicalHistoryWidget extends State<MedicalHistory> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                    Container(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 12, horizontal: 10),
-                        child: Text(
-                          'Do you have any diseases ?',
-                          style: TextStyle(
-                              fontSize: 18, color: MyThemeData.DarkGreen),
-                        )),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      child: TextFormField(
-                          validator: (value) {
-                            if (value.isEmpty)
-                              return "Please Enter Your comment";
-                            else
-                              return null;
-                          },
-                          minLines: 13,
-                          maxLines: 13,
+                       Container(
+                           padding: EdgeInsets.symmetric(vertical: 12,horizontal: 10),
+                            child: Text('Do you have any diseases ?',style:TextStyle(fontSize: 18,color: MyThemData.DarkGreen),)),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          child:
+                          TextFormField(
+                              validator: (value){
+                                if (value.isEmpty)
+                                  return "Please Enter Your comment";
+                                else return null ;
+                              },
+                              minLines: 13,
+                              maxLines: 13,
                               style: TextStyle(fontSize: 10),
 
                               decoration: InputDecoration(
                                 fillColor: Colors.white,filled: true,
                                 border: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                  color: MyThemeData.DarkGreen, width: 2.0),
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
                                 labelText: 'Enter Your Comment ',
                               )),
                         ),
@@ -120,11 +109,8 @@ class MedicalHistoryWidget extends State<MedicalHistory> {
                               primary: Color.fromARGB(255, 255, 255, 255)),
                           child: (Text(
                             'Submit ',
-                        style: TextStyle(
-                            color: MyThemeData.DarkGreen,
-                            fontSize: 10,
-                            fontWeight: FontWeight.bold),
-                      )),
+                            style: TextStyle(color: MyThemData.DarkGreen, fontSize: 10,fontWeight: FontWeight.bold),
+                          )),
                         ),
                       )
                     ],
@@ -138,7 +124,7 @@ class MedicalHistoryWidget extends State<MedicalHistory> {
  Void onClick(){
      if ( _key.currentState.validate()){
        Navigator.pushNamed(context, ContactPermision.ROUTE_NAME);
-    }
+     }
      else print ('please fill information ');
 
  }
