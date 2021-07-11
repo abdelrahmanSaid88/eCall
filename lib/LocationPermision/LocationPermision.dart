@@ -1,3 +1,5 @@
+import 'package:ecall/home/HomeScreen.dart';
+import 'package:ecall/sendsms/SendSms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:location/location.dart';
@@ -21,6 +23,16 @@ class _locationpermisionState extends State<locationpermision> {
   }
   Future<void> checkLocationServices() async {
     Location location = Location();
+    final permission = await location.requestPermission();
+
+    switch (permission) {
+      case PermissionStatus.granted:
+        Navigator.pushNamed(context,HomeScreen.ROUTE_NAME);
+        break;
+      case PermissionStatus.denied:
+        SystemNavigator.pop();
+        break;
+    }
     servicelocation = await location.serviceEnabled();
     if (servicelocation) {
       _permissionGranted = await location.hasPermission();

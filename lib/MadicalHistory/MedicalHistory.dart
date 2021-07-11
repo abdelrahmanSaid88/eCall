@@ -1,4 +1,5 @@
 import 'dart:ffi';
+import 'package:ecall/ContactPermision/ContactPermision.dart';
 import 'package:ecall/LocationPermision/LocationPermision.dart';
 import 'package:ecall/main.dart';
 import 'package:flutter/material.dart';
@@ -122,7 +123,7 @@ class MedicalHistoryWidget extends State<MedicalHistory> {
   }
  Void onClick(){
      if ( _key.currentState.validate()){
-       Navigator.pushNamed(context, locationpermision.ROUTE_NAME);
+       Navigator.pushNamed(context, ContactPermision.ROUTE_NAME);
      }
      else print ('please fill information ');
 
