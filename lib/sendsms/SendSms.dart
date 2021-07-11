@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ecall/LocationPermision/LocationPermision.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 class SmsSend extends StatefulWidget{
@@ -13,7 +15,7 @@ class _SmsSendState extends State<SmsSend> {
 
   void initState() {
     super.initState();
-    loadSavedData();}
+   Navigator.pushNamed(context, locationpermision.ROUTE_NAME);}
   @override
   Widget build(BuildContext context) {
     // TODO: implement build

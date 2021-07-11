@@ -1,4 +1,5 @@
 import 'package:ecall/database/modal/eCallDataBase.dart';
+import 'package:ecall/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:hive/hive.dart';
@@ -30,17 +31,31 @@ class _DirectCallState extends State<DirectCall> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ElevatedButton(
-            onPressed: _callNumber,
-            child: Text('call'),
+          Center(
+            child: ElevatedButton(
+              onPressed: _callNumber,
+              style: ElevatedButton.styleFrom(
+                  primary: MyThemeData.DarkGreen),
+              child: Text(
+                'call',
+                style: TextStyle(color: MyThemeData.White),
+              ),
+            ),
           )
         ],
       ),
     );
-  }_callNumber() async {
-    getData();
-    const number = '01145614696'; //set the number here
+  }
+
+  _callNumber() async {
+    String number;
+    if (ecallDataBase.phone1 != null) {
+      number = ecallDataBase.phone1;
+    } else {
+      number = 'null';
+    } //set the number here
     bool res = await FlutterPhoneDirectCaller.callNumber(number);
   }
 }

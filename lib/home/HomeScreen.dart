@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ecall/database/modal/eCallDataBase.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import '../main.dart';
@@ -240,10 +241,35 @@ class _HomeScreenState extends State<HomeScreen> {
                           ],
                         ),
                       ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Center(
+                            child: ElevatedButton(
+                              onPressed: _callNumber,
+                              style: ElevatedButton.styleFrom(
+                                  primary: MyThemeData.DarkGreen),
+                              child: Text(
+                                'call',
+                                style: TextStyle(color: MyThemeData.White),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
                     ],
                   ),
                 ),
               ],
             )));
+  }
+  _callNumber() async {
+    String number;
+    if (ecallDataBase.phone1 != null) {
+      number = ecallDataBase.phone1;
+    } else {
+      number = 'null';
+    } //set the number here
+    bool res = await FlutterPhoneDirectCaller.callNumber(number);
   }
 }

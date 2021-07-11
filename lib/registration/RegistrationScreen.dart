@@ -7,7 +7,7 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
-
+import 'package:flutter_scan_bluetooth/flutter_scan_bluetooth.dart';
 class RegistrationScreen extends StatefulWidget {
   static final String ROUTE_NAME = 'Registration ';
 
@@ -33,6 +33,10 @@ class MedicalHistoryWidget extends State<RegistrationScreen> {
     'bloodType': '',
     'medicalHistory': '',
   };
+  void initState() {
+    super.initState();
+    checkBluetoothServices();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -632,4 +636,14 @@ class MedicalHistoryWidget extends State<RegistrationScreen> {
     await box.add(DBRegistration);
     return;
   }
+
+  Future<void> checkBluetoothServices() async {
+    FlutterScanBluetooth _bluetooth = FlutterScanBluetooth();
+    try {
+      await _bluetooth.requestPermissions();
+      print('All good with perms');
+    } on PlatformException catch (e) {
+      debugPrint(e.toString());
+    }
+}
 }

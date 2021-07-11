@@ -2,10 +2,10 @@ import 'package:ecall/LocationPermision/LocationPermision.dart';
 import 'package:ecall/database/eCall.dart';
 import 'package:ecall/home/HomeScreen.dart';
 import 'package:ecall/registration/RegistrationScreen.dart';
+import 'package:ecall/sendsms/SendSms.dart';
 import 'package:flutter/material.dart';
 import 'ContactPermision/ContactPermision.dart';
 import 'bluetooth/BluetoothScan.dart';
-import 'bluetooth/BlutoothPermision.dart';
 import 'directcall/DirectCall.dart';
 
 class MyThemeData {
@@ -29,9 +29,9 @@ class MyApp extends StatelessWidget {
         locationpermision.ROUTE_NAME: (context) => locationpermision(),
         RegistrationScreen.ROUTE_NAME: (context) => RegistrationScreen(),
         BluetoothScan.ROUTE_NAME: (context) => BluetoothScan(),
-        BlutoothPermision.ROUTE_NAME: (context) => BlutoothPermision(),
         DirectCall.ROUTE_NAME: (context) => DirectCall(),
         HomeScreen.ROUTE_NAME: (context) => HomeScreen(),
+        SmsSend.ROUTE_NAME:(context)=> SmsSend(),
       },
       initialRoute: RegistrationScreen.ROUTE_NAME,
     );
