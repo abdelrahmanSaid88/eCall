@@ -4,16 +4,13 @@ import 'package:flutter_scan_bluetooth/flutter_scan_bluetooth.dart';
 
 class BluetoothScan extends StatefulWidget {
   static final ROUTE_NAME = 'bluetoothScan';
-
   @override
   BluetoothScanState createState() => new BluetoothScanState();
 }
-
 class BluetoothScanState extends State<BluetoothScan> {
   String _data = '';
   bool _scanning = false;
   FlutterScanBluetooth _bluetooth = FlutterScanBluetooth();
-
   @override
   void initState() {
     super.initState();
@@ -29,7 +26,6 @@ class BluetoothScanState extends State<BluetoothScan> {
       });
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(

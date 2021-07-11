@@ -48,14 +48,8 @@ class _SmsSendState extends State<SmsSend> {
               ),
             ],
           ),
-        )
-
-        ,
-
-      )
-
-      ,
-
+        ),
+      ),
     );
   }
   Future<void> loadSavedData() async {

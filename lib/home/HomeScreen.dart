@@ -14,7 +14,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  eCallDataBase myDataBase = eCallDataBase();
+  eCallDataBase ecallDataBase = eCallDataBase();
 
   @override
   void initState() {
@@ -24,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Future getData() async {
     var box = await Hive.openBox(eCallDataBase.BOX_NAME);
-    myDataBase = await box.values.toList()[0];
+    ecallDataBase = await box.values.toList()[0];
     setState(() {});
   }
 
@@ -51,8 +51,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       //Name
                       Container(
                           child: Text(
-                              myDataBase.name != null
-                                  ? myDataBase.name
+                              ecallDataBase.name != null
+                                  ? ecallDataBase.name
                                   : 'Nader ',
                               textAlign: TextAlign.center,
                               style: TextStyle(
@@ -68,8 +68,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             Container(
                                 padding: EdgeInsets.only(bottom: 10, top: 5),
                                 child: Text(
-                                    myDataBase.address != null
-                                        ? myDataBase.address
+                                    ecallDataBase.address != null
+                                        ? ecallDataBase.address
                                         : 'Giza/6oct',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
@@ -91,8 +91,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  myDataBase.age != null
-                                      ? myDataBase.age
+                                  ecallDataBase.age != null
+                                      ? ecallDataBase.age
                                       : 'null',
                                 ),
                               ),
@@ -123,8 +123,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  myDataBase.carBrand != null
-                                      ? myDataBase.carBrand
+                                  ecallDataBase.carBrand != null
+                                      ? ecallDataBase.carBrand
                                       : 'BMW-X6',
                                 ),
                               ),
@@ -155,8 +155,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  myDataBase.carNumber != null
-                                      ? myDataBase.carNumber
+                                  ecallDataBase.carNumber != null
+                                      ? ecallDataBase.carNumber
                                       : ' ل ن 123 ',
                                 ),
                               ),
@@ -188,10 +188,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
                                   'Friends Numbers \n-------------------------\n'
-                                  '${myDataBase.phone1 != null ? myDataBase.phone1 : '01117965567'} \n '
-                                  '${myDataBase.phone2 != null ? myDataBase.phone2 : '01145614696'} \n'
-                                  ' ${myDataBase.phone3 != null ? myDataBase.phone3 : '123'} \n'
-                                  ' ${myDataBase.phone4 != null ? myDataBase.phone4 : '122'} ',
+                                  '${ecallDataBase.phone1 != null ? ecallDataBase.phone1 : '01117965567'} \n '
+                                  '${ecallDataBase.phone2 != null ? ecallDataBase.phone2 : '01145614696'} \n'
+                                  ' ${ecallDataBase.phone3 != null ? ecallDataBase.phone3 : '123'} \n'
+                                  ' ${ecallDataBase.phone4 != null ? ecallDataBase.phone4 : '122'} ',
                                 ),
                               ),
                               decoration: BoxDecoration(
@@ -222,8 +222,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 padding: const EdgeInsets.all(10.0),
                                 child: Text(
                                   'Medical History \n-------------------------\n'
-                                  '${myDataBase.bloodType != null ? myDataBase.bloodType : 'A+'} \n '
-                                  '\n ${myDataBase.medicalHistory != null ? myDataBase.medicalHistory : 'I am Good'}  ',
+                                  '${ecallDataBase.bloodType != null ? ecallDataBase.bloodType : 'A+'} \n '
+                                  '\n ${ecallDataBase.medicalHistory != null ? ecallDataBase.medicalHistory : 'I am Good'}  ',
                                 ),
                               ),
                               decoration: BoxDecoration(
