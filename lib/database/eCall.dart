@@ -1,9 +1,8 @@
-import 'package:ecall/database/modal/MyDataBase.dart';
+import 'package:ecall/database/modal/eCallDataBase.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 void initDataBase() async {
   await Hive.initFlutter();
   Hive.registerAdapter(MyDataBaseAdapter());
-  
 }

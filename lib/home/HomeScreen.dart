@@ -1,302 +1,249 @@
 import 'package:flutter/material.dart';
-import 'package:ecall/database/modal/MyDataBase.dart';
-import 'package:ecall/database/modal/MyDataBase.dart';
+import 'package:ecall/database/modal/eCallDataBase.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import '../main.dart';
 
 class HomeScreen extends StatefulWidget {
   static final ROUTE_NAME = 'Home';
 
-//  HomeScreen(this.myDataBase);
+  HomeScreen();
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  MyDataBase myDataBase;
+  eCallDataBase myDataBase = eCallDataBase();
+
+  @override
+  void initState() {
+    super.initState();
+    getData();
+  }
+
+  Future getData() async {
+    var box = await Hive.openBox(eCallDataBase.BOX_NAME);
+    myDataBase = await box.values.toList()[0];
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
-    final node = FocusScope.of(context);
     return SafeArea(
         child: Scaffold(
             backgroundColor: MyThemeData.BackgroundColor,
-            body: Container(
-                child: ListView(
+            body: ListView(
               children: <Widget>[
                 //profile pic
-                Expanded(
-                    flex: 1,
-                    child: Container(
-                        child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child:
-                          Center(child: Image.asset('assets/images/home.png')),
-                    ))),
-                //Name
-                Expanded(
-                  child: Container(
-                    margin: EdgeInsets.all(1),
-                    padding: EdgeInsets.all(5),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                            child: Text(MyDataBase.BOX_NAME,
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontSize: 18,
-                                    color: MyThemeData.DarkGreen))),
-                      ],
-                    ),
-                  ),
-                ),
-                //Address
-                Expanded(
-                  child: Container(
-                    margin: EdgeInsets.all(1),
-                    padding: EdgeInsets.all(5),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                            padding: EdgeInsets.only(bottom: 10, top: 5),
-                            child: Text('myDataBase.address',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontSize: 18,
-                                    color: MyThemeData.DarkGreen))),
-                      ],
-                    ),
-                  ),
-                ),
-                //Age
-                Expanded(
-                  child: Container(
-                    margin: EdgeInsets.all(1),
-                    padding: EdgeInsets.all(5),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        TextField(
-                          textInputAction: TextInputAction.next,
-                          onEditingComplete: () => node.nextFocus(),
-                          // Move focus to next
-                          decoration: InputDecoration(
-                            hintText: 'TextField A',
-                            hintStyle: TextStyle(
-                              color: MyThemeData.DarkGreen,
-                            ),
-                            prefixIcon: Container(
-                              padding: EdgeInsets.only(
-                                  left: 8.0, right: 8.0, bottom: 8.0, top: 8.0),
-                              child: Image.asset("assets/images/ic_age.png"),
-                            ),
-                            fillColor: MyThemeData.White,
-                            filled: true,
-                            labelStyle: TextStyle(
-                              color: MyThemeData.DarkGreen,
-                            ),
-                            border: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                  color: MyThemeData.DarkGreen, width: 2.0),
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                          ),
-
-                          style: TextStyle(
-                              fontSize: 15, color: MyThemeData.DarkGreen),
+                Container(
+                    child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Center(child: Image.asset('assets/images/home.png')),
+                )),
+                Container(
+                  margin: EdgeInsets.all(1),
+                  padding: EdgeInsets.all(5),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      //Name
+                      Container(
+                          child: Text(
+                              myDataBase.name != null
+                                  ? myDataBase.name
+                                  : 'Nader ',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  fontSize: 18, color: MyThemeData.DarkGreen))),
+                      //Address
+                      Container(
+                        margin: EdgeInsets.all(1),
+                        padding: EdgeInsets.all(5),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                                padding: EdgeInsets.only(bottom: 10, top: 5),
+                                child: Text(
+                                    myDataBase.address != null
+                                        ? myDataBase.address
+                                        : 'Giza/6oct',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        color: MyThemeData.DarkGreen))),
+                          ],
                         ),
-                      ],
-                    ),
-                  ),
-                ),
-                //Car Brand
-                Expanded(
-                  child: Container(
-                    margin: EdgeInsets.all(1),
-                    padding: EdgeInsets.all(5),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        TextField(
-                          textInputAction: TextInputAction.next,
-                          onEditingComplete: () => node.nextFocus(),
-                          // Move focus to next
-                          decoration: InputDecoration(
-                            hintText: 'TextField A',
-                            hintStyle: TextStyle(
-                              color: MyThemeData.DarkGreen,
+                      ),
+                      //Age
+                      Container(
+                        margin: EdgeInsets.all(1),
+                        padding: EdgeInsets.all(5),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Container(
+                              height: 40,
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  myDataBase.age != null
+                                      ? myDataBase.age
+                                      : 'null',
+                                ),
+                              ),
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  width: 1.5,
+                                  color: MyThemeData.DarkGreen,
+                                ),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(8),
+                                ),
+                                color: MyThemeData.White,
+                              ),
                             ),
-                            prefixIcon: Container(
-                              padding: EdgeInsets.only(
-                                  left: 8.0, right: 8.0, bottom: 8.0, top: 8.0),
-                              child:
-                                  Image.asset("assets/images/ic_car_brand.png"),
-                            ),
-                            fillColor: MyThemeData.White,
-                            filled: true,
-                            labelStyle: TextStyle(
-                              color: MyThemeData.DarkGreen,
-                            ),
-                            border: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                  color: MyThemeData.DarkGreen, width: 2.0),
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                          ),
-
-                          style: TextStyle(
-                              fontSize: 15, color: MyThemeData.DarkGreen),
+                          ],
                         ),
-                      ],
-                    ),
-                  ),
-                ),
-                //Car number
-                Expanded(
-                  child: Container(
-                    margin: EdgeInsets.all(1),
-                    padding: EdgeInsets.all(5),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        TextField(
-                          textInputAction: TextInputAction.next,
-                          onEditingComplete: () => node.nextFocus(),
-                          // Move focus to next
-                          decoration: InputDecoration(
-                            hintText: 'TextField A',
-                            hintStyle: TextStyle(
-                              color: MyThemeData.DarkGreen,
+                      ),
+                      //Car Brand
+                      Container(
+                        margin: EdgeInsets.all(1),
+                        padding: EdgeInsets.all(5),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Container(
+                              height: 40,
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  myDataBase.carBrand != null
+                                      ? myDataBase.carBrand
+                                      : 'BMW-X6',
+                                ),
+                              ),
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  width: 1.5,
+                                  color: MyThemeData.DarkGreen,
+                                ),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(8),
+                                ),
+                                color: MyThemeData.White,
+                              ),
                             ),
-                            prefixIcon: Container(
-                              padding: EdgeInsets.only(
-                                  left: 8.0, right: 8.0, bottom: 8.0, top: 8.0),
-                              child: Image.asset(
-                                  "assets/images/ic_car_number.png"),
-                            ),
-                            fillColor: MyThemeData.White,
-                            filled: true,
-                            labelStyle: TextStyle(
-                              color: MyThemeData.DarkGreen,
-                            ),
-                            border: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                  color: MyThemeData.DarkGreen, width: 2.0),
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                          ),
-
-                          style: TextStyle(
-                              fontSize: 15, color: MyThemeData.DarkGreen),
+                          ],
                         ),
-                      ],
-                    ),
-                  ),
-                ),
-                //Friends Number
-                Expanded(
-                  flex: 2,
-                  child: Container(
-                    margin: EdgeInsets.all(1),
-                    padding: EdgeInsets.all(5),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        TextField(
-                          minLines: 8,
-                          maxLines: 8,
-                          textInputAction: TextInputAction.next,
-                          onEditingComplete: () => node.nextFocus(),
-                          // Move focus to next
-                          textAlign: TextAlign.center,
-                          decoration: InputDecoration(
-                            hintText: 'TextField A',
-                            hintStyle: TextStyle(
-                              color: MyThemeData.DarkGreen,
+                      ),
+                      //Car number
+                      Container(
+                        margin: EdgeInsets.all(1),
+                        padding: EdgeInsets.all(5),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Container(
+                              height: 40,
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  myDataBase.carNumber != null
+                                      ? myDataBase.carNumber
+                                      : ' ل ن 123 ',
+                                ),
+                              ),
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  width: 1.5,
+                                  color: MyThemeData.DarkGreen,
+                                ),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(8),
+                                ),
+                                color: MyThemeData.White,
+                              ),
                             ),
-                            prefixIcon: Container(
-                              padding: EdgeInsets.only(
-                                  left: 8.0, right: 8.0, bottom: 8.0, top: 8.0),
-                              child: Image.asset("assets/images/ic_call.png"),
-                            ),
-                            fillColor: MyThemeData.White,
-                            filled: true,
-                            labelStyle: TextStyle(
-                              color: MyThemeData.DarkGreen,
-                            ),
-                            border: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                  color: MyThemeData.DarkGreen, width: 2.0),
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                          ),
-
-                          style: TextStyle(
-                              fontSize: 15, color: MyThemeData.DarkGreen),
+                          ],
                         ),
-                      ],
-                    ),
-                  ),
-                ),
-                //medical history
-                Expanded(
-                  flex: 2,
-                  child: Container(
-                    margin: EdgeInsets.all(1),
-                    padding:
-                        EdgeInsets.only(left: 5, top: 5, right: 5, bottom: 15),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        TextField(
-                          minLines: 8,
-                          maxLines: 8,
-                          textInputAction: TextInputAction.next,
-                          onEditingComplete: () => node.nextFocus(),
-                          // Move focus to next
-                          textAlign: TextAlign.center,
-                          decoration: InputDecoration(
-                            hintText: 'TextField A',
-                            hintStyle: TextStyle(
-                              color: MyThemeData.DarkGreen,
+                      ),
+                      //Friends Number
+                      Container(
+                        margin: EdgeInsets.all(1),
+                        padding: EdgeInsets.all(5),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Container(
+                              height: 120,
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  'Friends Numbers \n-------------------------\n'
+                                  '${myDataBase.phone1 != null ? myDataBase.phone1 : '01117965567'} \n '
+                                  '${myDataBase.phone2 != null ? myDataBase.phone2 : '01145614696'} \n'
+                                  ' ${myDataBase.phone3 != null ? myDataBase.phone3 : '123'} \n'
+                                  ' ${myDataBase.phone4 != null ? myDataBase.phone4 : '122'} ',
+                                ),
+                              ),
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  width: 1.5,
+                                  color: MyThemeData.DarkGreen,
+                                ),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(8),
+                                ),
+                                color: MyThemeData.White,
+                              ),
                             ),
-                            prefixIcon: Container(
-                              padding: EdgeInsets.only(
-                                  left: 8.0, right: 8.0, bottom: 8.0, top: 8.0),
-                              child: Image.asset(
-                                  "assets/images/ic_medical_history.png"),
-                            ),
-                            fillColor: MyThemeData.White,
-                            filled: true,
-                            labelStyle: TextStyle(
-                              color: MyThemeData.DarkGreen,
-                            ),
-                            border: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                  color: MyThemeData.DarkGreen, width: 2.0),
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                          ),
-
-                          style: TextStyle(
-                              fontSize: 15, color: MyThemeData.DarkGreen),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                      //medical history
+                      Container(
+                        margin: EdgeInsets.all(1),
+                        padding: EdgeInsets.all(5),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Container(
+                              height: 125,
+                              child: Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: Text(
+                                  'Medical History \n-------------------------\n'
+                                  '${myDataBase.bloodType != null ? myDataBase.bloodType : 'A+'} \n '
+                                  '\n ${myDataBase.medicalHistory != null ? myDataBase.medicalHistory : 'I am Good'}  ',
+                                ),
+                              ),
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  width: 1.5,
+                                  color: MyThemeData.DarkGreen,
+                                ),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(8),
+                                ),
+                                color: MyThemeData.White,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
-            ))));
+            )));
   }
-
-  void onUserClicked() {}
 }
